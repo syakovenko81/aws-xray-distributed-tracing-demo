@@ -30,6 +30,7 @@ API Gateway and Lambda active tracing provide the AWS-managed request segments. 
 - `tests/` - local unit tests using fake AWS clients; no AWS account is required.
 - `scripts/` - deployment, test-request, and cleanup helpers.
 - `docs/architecture.md` - standalone architecture diagram.
+- [`docs/observability-runbook.md`](docs/observability-runbook.md) - practical procedure for tracing one request through the deployed path.
 - `docs/tracing-validation.md` - validation procedure and deployment evidence checklist.
 - `docs/cost-estimate.md` - cost assumptions and cleanup guidance.
 
