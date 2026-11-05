@@ -146,9 +146,7 @@ git diff --check
 
 `terraform validate` requires the provider plugins to have been initialized. A plan requires AWS credentials and network access, but is still non-mutating.
 
-## Cost and cleanup
-
-This demo has no guaranteed zero-cost price. Free Tier eligibility depends on account age, region, usage, and current AWS terms. Relevant current pricing pages and assumptions are recorded in [`docs/cost-estimate.md`](docs/cost-estimate.md).
+## Cleanup
 
 Destroy everything created by Terraform when finished:
 
@@ -158,19 +156,3 @@ Destroy everything created by Terraform when finished:
 
 The cleanup script deletes the exact demo DynamoDB table from Terraform output before running `terraform destroy`, so test records cannot prevent table deletion. Review the destroy plan and script output before applying cleanup. Also check X-Ray and CloudWatch consoles after cleanup for retained telemetry or logs from the short retention window.
 
-## EPAM Development Justification artifacts
-
-Attach or link:
-
-1. The GitHub repository URL for this project.
-2. [`docs/architecture.md`](docs/architecture.md) or an exported screenshot/PDF of its diagram.
-3. [`docs/tracing-validation.md`](docs/tracing-validation.md), completed with the real deployment date, region, trace IDs, and evidence links.
-4. A successful X-Ray trace screenshot showing the API Gateway -> Lambda A -> Lambda B -> DynamoDB path and correlation annotation/attribute.
-5. A service-map screenshot showing the deployed components.
-6. An error-trace screenshot for the controlled failure.
-
-Items 1-3 are maintained in this repository. The ten screenshots used by the completed report remain in the supplied local directory `/mnt/c/Users/SergeyYakovenko/Downloads/x-ray/`; attach them with the report when submitting the EPAM evidence package. The screenshots are not copied into the repository or renamed.
-
-## Current implementation note
-
-AWS documentation currently recommends ADOT for new Lambda instrumentation and lists AWS X-Ray SDK support ending on February 25, 2027. This project therefore uses ADOT rather than adding the legacy X-Ray SDK to the function packages. The ADOT layer ARN is intentionally configurable because it is region- and release-specific.
