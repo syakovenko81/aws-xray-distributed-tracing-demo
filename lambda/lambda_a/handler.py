@@ -15,6 +15,32 @@ lambda_client = boto3.client("lambda")
 lambda_b_name = os.environ.get("LAMBDA_B_NAME", "local-lambda-b")
 
 
+def _troubleshooting_options(body):
+    if os.environ.get("ENABLE_TROUBLESHOOTING_HOOKS", "false").lower() != "true":
+        return None
+
+    options = body.get("troubleshooting")
+    if options is None:
+        return None
+    if not isinstance(options, dict):
+        raise ValueError("troubleshooting must be an object")
+
+    allowed_keys = {"delay_ms", "dependency_error"}
+    unknown_keys = set(options) - allowed_keys
+    if unknown_keys:
+        raise ValueError("unsupported troubleshooting option")
+
+    delay_ms = options.get("delay_ms", 0)
+    if isinstance(delay_ms, bool) or not isinstance(delay_ms, int) or not 0 <= delay_ms <= 30000:
+        raise ValueError("delay_ms must be an integer from 0 to 30000")
+
+    dependency_error = options.get("dependency_error", False)
+    if not isinstance(dependency_error, bool):
+        raise ValueError("dependency_error must be a boolean")
+
+    return {"delay_ms": delay_ms, "dependency_error": dependency_error}
+
+
 def _response(status_code, body):
     return {
         "statusCode": status_code,
@@ -56,6 +82,7 @@ def lambda_handler(event, context):
             simulate_error = body.get("simulate_error", False)
             if not isinstance(simulate_error, bool):
                 raise ValueError("simulate_error must be a boolean")
+            troubleshooting = _troubleshooting_options(body)
         except (TypeError, ValueError, json.JSONDecodeError) as error:
             mark_error(request_span, error)
             logger.warning("invalid request: %s", error)
@@ -79,6 +106,8 @@ def lambda_handler(event, context):
                 "simulate_error": simulate_error,
                 "_trace_context": trace_context,
             }
+            if troubleshooting is not None:
+                request["troubleshooting"] = troubleshooting
 
             try:
                 result = lambda_client.invoke(
