@@ -1,0 +1,41 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+  build:
+    commands:
+      - set -euo pipefail
+      - COMMIT_SHA="${CODEBUILD_RESOLVED_SOURCE_VERSION:-local}"
+      - APP_VERSION="${COMMIT_SHA:0:12}"
+      - printf 'APP_VERSION = "%s"\n' "${APP_VERSION}" > application/version.py
+      - PYTHONPATH=application python -m unittest discover -s application -p 'test_*.py'
+      - rm -rf build-output
+      - mkdir -p build-output
+      - cd application
+      - zip -q -r ../build-output/lambda.zip . -x 'test_*.py' '__pycache__/*' '*.pyc'
+      - cd ..
+      - CURRENT_VERSION="$(aws lambda get-alias --function-name "${LAMBDA_FUNCTION_NAME}" --name "${LAMBDA_ALIAS_NAME}" --query 'FunctionVersion' --output text)"
+      - UPDATE_RESULT="$(aws lambda update-function-code --function-name "${LAMBDA_FUNCTION_NAME}" --zip-file fileb://build-output/lambda.zip --publish)"
+      - printf '%s\n' "${UPDATE_RESULT}" > build-output/update-result.json
+      - TARGET_VERSION="$(printf '%s' "${UPDATE_RESULT}" | python -c 'import json, sys; print(json.load(sys.stdin)["Version"])')"
+      - |
+        cat > build-output/appspec.yml <<EOF
+        version: 0.0
+        Resources:
+          - TargetService:
+              Type: AWS::Lambda::Function
+              Properties:
+                Name: ${LAMBDA_FUNCTION_NAME}
+                Alias: ${LAMBDA_ALIAS_NAME}
+                CurrentVersion: "${CURRENT_VERSION}"
+                TargetVersion: "${TARGET_VERSION}"
+        EOF
+
+artifacts:
+  base-directory: build-output
+  files:
+    - appspec.yml
+    - lambda.zip
+    - update-result.json

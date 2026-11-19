@@ -1,0 +1,28 @@
+CodeCommit initial push evidence
+
+Account: 661200526584
+Region: us-east-1
+Repository: aws-code-suite-lambda-poc
+Branch: main
+Commit message: Initial Lambda CI/CD application
+Commit ID: 6a20d5ce547b751c9f52ded821a7e601a856c2f1
+Remote history before push: empty; list-branches returned []
+Push mode: normal push to HEAD:main; no force push
+
+Pushed files:
+- .gitignore
+- README.md
+- application/handler.py
+- application/requirements.txt
+- application/test_handler.py
+- application/version.py
+- build/buildspec.yml
+- deploy/appspec.yml
+
+Excluded local artifacts:
+- terraform/.terraform/
+- terraform/terraform.tfstate
+- terraform/terraform.tfstate.backup
+- terraform/aws-code-suite.tfplan
+- terraform/aws-code-suite.tfplan.txt
+- generated ZIP and Python cache files

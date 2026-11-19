@@ -1,0 +1,12 @@
+CodeDeploy validation
+
+Application: aws-code-suite-lambda-poc-poc-app
+Deployment group: aws-code-suite-lambda-poc-poc-deployment-group
+Deployment config: CodeDeployDefault.LambdaCanary10Percent5Minutes
+Alarm enabled: true
+Alarm: aws-code-suite-lambda-poc-poc-lambda-alias-errors
+Automatic rollback: enabled
+Rollback events: DEPLOYMENT_FAILURE, DEPLOYMENT_STOP_ON_ALARM
+
+Deployment result: No CodeDeploy deployment was created.
+Reason: CodePipeline stopped in the Build stage before the Deploy stage.

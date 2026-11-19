@@ -1,0 +1,11 @@
+CodeBuild validation
+
+Project: aws-code-suite-lambda-poc-poc-build
+Pipeline execution: 9d5db11f-6687-4f70-a40a-56fb09876818
+Result: Build was not created or started.
+
+Root cause reported by CodePipeline:
+AccountLimitExceededException: Cannot have more than 0 builds in queue for the account.
+
+Because CodeBuild rejected startBuild before a build was allocated, there is no
+build ID and no CodeBuild log stream to collect. No build retry was performed.

@@ -1,0 +1,19 @@
+CodePipeline execution evidence
+
+Pipeline: aws-code-suite-lambda-poc-poc-pipeline
+Execution ID: 9d5db11f-6687-4f70-a40a-56fb09876818
+Region: us-east-1
+Trigger: CloudWatchEvent / EventBridge rule aws-code-suite-lambda-poc-poc-pipeline-source-updated
+Overall status: Failed
+
+Source stage: Succeeded
+Source revision: 6a20d5ce547b751c9f52ded821a7e601a856c2f1
+Source summary: Initial Lambda CI/CD application
+
+Build stage: Failed before CodeBuild build started
+Action execution ID: 9a821608-9c0d-45db-a5d7-70ec3d1f12df
+Error code: JobFailed
+Error: AccountLimitExceededException - Cannot have more than 0 builds in queue for the account
+AWS request ID: 4a1e07f4-dc6e-4496-aef5-cc90dd84e9a1
+
+Deploy stage: Not started

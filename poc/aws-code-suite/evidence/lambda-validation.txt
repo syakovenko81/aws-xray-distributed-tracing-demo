@@ -1,0 +1,11 @@
+Lambda post-deployment validation
+
+Function: aws-code-suite-lambda-poc-poc-lambda
+Alias: live
+Current alias version: 1
+Region: us-east-1
+
+The initial pipeline deployment did not reach CodeDeploy, so no new Lambda
+version was produced by CodeBuild and no Lambda invocation was performed as a
+post-deployment test. The alias value above is the pre-existing Terraform
+bootstrap version, not a verified pipeline deployment result.

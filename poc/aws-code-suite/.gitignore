@@ -1,0 +1,16 @@
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Terraform local data and state
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfplan.txt
+crash.log
+crash.*.log
+
+# Local build output and deployment packages
+build-output/
+*.zip
