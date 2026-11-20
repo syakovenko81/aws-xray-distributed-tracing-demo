@@ -1,0 +1,24 @@
+Resources:
+  S3BucketServerSideEncryption:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: ${encryption_rule_name}
+      Scope:
+        ComplianceResourceId: ${test_bucket_name}
+        ComplianceResourceTypes:
+          - AWS::S3::Bucket
+      Source:
+        Owner: AWS
+        SourceIdentifier: S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED
+
+  S3BucketPublicReadProhibited:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: ${public_read_rule_name}
+      Scope:
+        ComplianceResourceId: ${test_bucket_name}
+        ComplianceResourceTypes:
+          - AWS::S3::Bucket
+      Source:
+        Owner: AWS
+        SourceIdentifier: S3_BUCKET_PUBLIC_READ_PROHIBITED

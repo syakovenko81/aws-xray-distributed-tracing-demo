@@ -1,0 +1,79 @@
+{
+    "configurationItems": [
+        {
+            "version": "1.3",
+            "accountId": "661200526584",
+            "configurationItemCaptureTime": "2026-11-20T09:26:47.469000+05:00",
+            "configurationItemStatus": "OK",
+            "configurationStateId": "1795148807469",
+            "configurationItemMD5Hash": "",
+            "arn": "arn:aws:s3:::aws-config-poc-poc-test-20261120040817217400000002",
+            "resourceType": "AWS::S3::Bucket",
+            "resourceId": "aws-config-poc-poc-test-20261120040817217400000002",
+            "resourceName": "aws-config-poc-poc-test-20261120040817217400000002",
+            "awsRegion": "us-east-1",
+            "availabilityZone": "Regional",
+            "resourceCreationTime": "2026-11-20T09:08:19+05:00",
+            "tags": {
+                "Environment": "poc",
+                "ManagedBy": "terraform",
+                "PoC": "aws-config",
+                "Project": "aws-config-poc"
+            },
+            "relatedEvents": [],
+            "relationships": [],
+            "configuration": "{\"name\":\"aws-config-poc-poc-test-20261120040817217400000002\",\"owner\":{\"displayName\":null,\"id\":\"c9cb8d639c767e820ee9abc150eeffaef0cb4a131ce1a303534fe2113bd5a969\"},\"creationDate\":\"2026-11-20T04:08:19.000Z\",\"region\":\"us-east-1\"}",
+            "supplementaryConfiguration": {
+                "AbacStatus": "{\"status\":\"Disabled\"}",
+                "AccessControlList": "\"{\\\"grantSet\\\":null,\\\"grantList\\\":[{\\\"grantee\\\":{\\\"id\\\":\\\"c9cb8d639c767e820ee9abc150eeffaef0cb4a131ce1a303534fe2113bd5a969\\\",\\\"displayName\\\":null},\\\"permission\\\":\\\"FullControl\\\"}],\\\"owner\\\":{\\\"displayName\\\":null,\\\"id\\\":\\\"c9cb8d639c767e820ee9abc150eeffaef0cb4a131ce1a303534fe2113bd5a969\\\"},\\\"isRequesterCharged\\\":false}\"",
+                "BucketAccelerateConfiguration": "{\"status\":null,\"isRequesterCharged\":false}",
+                "BucketLoggingConfiguration": "{\"destinationBucketName\":null,\"logFilePrefix\":null,\"targetObjectKeyFormat\":null}",
+                "BucketNotificationConfiguration": "{\"configurations\":{},\"eventBridgeConfiguration\":null}",
+                "BucketPolicy": "{\"policyText\":\"{\\\"Version\\\":\\\"2012-10-17\\\",\\\"Statement\\\":[{\\\"Sid\\\":\\\"DenyInsecureTransport\\\",\\\"Effect\\\":\\\"Deny\\\",\\\"Principal\\\":\\\"*\\\",\\\"Action\\\":\\\"s3:*\\\",\\\"Resource\\\":[\\\"arn:aws:s3:::aws-config-poc-poc-test-20261120040817217400000002/*\\\",\\\"arn:aws:s3:::aws-config-poc-poc-test-20261120040817217400000002\\\"],\\\"Condition\\\":{\\\"Bool\\\":{\\\"aws:SecureTransport\\\":\\\"false\\\"}}}]}\"}",
+                "BucketTaggingConfiguration": "{\"tagSets\":[{\"tags\":{\"Project\":\"aws-config-poc\",\"Environment\":\"poc\",\"ManagedBy\":\"terraform\",\"PoC\":\"aws-config\"}}]}",
+                "BucketVersioningConfiguration": "{\"status\":\"Enabled\",\"isMfaDeleteEnabled\":null}",
+                "IsRequesterPaysEnabled": "false",
+                "PublicAccessBlockConfiguration": "{\"blockPublicAcls\":true,\"ignorePublicAcls\":true,\"blockPublicPolicy\":true,\"restrictPublicBuckets\":true}",
+                "ServerSideEncryptionConfiguration": "{\"rules\":[{\"applyServerSideEncryptionByDefault\":{\"sseAlgorithm\":\"AES256\",\"kmsMasterKeyID\":null},\"bucketKeyEnabled\":false}]}"
+            }
+        },
+        {
+            "version": "1.3",
+            "accountId": "661200526584",
+            "configurationItemCaptureTime": "2026-11-20T09:10:44.635000+05:00",
+            "configurationItemStatus": "ResourceDiscovered",
+            "configurationStateId": "1795147844635",
+            "configurationItemMD5Hash": "",
+            "arn": "arn:aws:s3:::aws-config-poc-poc-test-20261120040817217400000002",
+            "resourceType": "AWS::S3::Bucket",
+            "resourceId": "aws-config-poc-poc-test-20261120040817217400000002",
+            "resourceName": "aws-config-poc-poc-test-20261120040817217400000002",
+            "awsRegion": "us-east-1",
+            "availabilityZone": "Regional",
+            "resourceCreationTime": "2026-11-20T09:08:19+05:00",
+            "tags": {
+                "Environment": "poc",
+                "ManagedBy": "terraform",
+                "PoC": "aws-config",
+                "Project": "aws-config-poc"
+            },
+            "relatedEvents": [],
+            "relationships": [],
+            "configuration": "{\"name\":\"aws-config-poc-poc-test-20261120040817217400000002\",\"owner\":{\"displayName\":null,\"id\":\"c9cb8d639c767e820ee9abc150eeffaef0cb4a131ce1a303534fe2113bd5a969\"},\"creationDate\":\"2026-11-20T04:08:19.000Z\",\"region\":\"us-east-1\"}",
+            "supplementaryConfiguration": {
+                "AbacStatus": "{\"status\":\"Disabled\"}",
+                "AccessControlList": "\"{\\\"grantSet\\\":null,\\\"grantList\\\":[{\\\"grantee\\\":{\\\"id\\\":\\\"c9cb8d639c767e820ee9abc150eeffaef0cb4a131ce1a303534fe2113bd5a969\\\",\\\"displayName\\\":null},\\\"permission\\\":\\\"FullControl\\\"}],\\\"owner\\\":{\\\"displayName\\\":null,\\\"id\\\":\\\"c9cb8d639c767e820ee9abc150eeffaef0cb4a131ce1a303534fe2113bd5a969\\\"},\\\"isRequesterCharged\\\":false}\"",
+                "BucketAccelerateConfiguration": "{\"status\":null,\"isRequesterCharged\":false}",
+                "BucketLoggingConfiguration": "{\"destinationBucketName\":null,\"logFilePrefix\":null,\"targetObjectKeyFormat\":null}",
+                "BucketNotificationConfiguration": "{\"configurations\":{},\"eventBridgeConfiguration\":null}",
+                "BucketPolicy": "{\"policyText\":\"{\\\"Version\\\":\\\"2012-10-17\\\",\\\"Statement\\\":[{\\\"Sid\\\":\\\"DenyInsecureTransport\\\",\\\"Effect\\\":\\\"Deny\\\",\\\"Principal\\\":\\\"*\\\",\\\"Action\\\":\\\"s3:*\\\",\\\"Resource\\\":[\\\"arn:aws:s3:::aws-config-poc-poc-test-20261120040817217400000002/*\\\",\\\"arn:aws:s3:::aws-config-poc-poc-test-20261120040817217400000002\\\"],\\\"Condition\\\":{\\\"Bool\\\":{\\\"aws:SecureTransport\\\":\\\"false\\\"}}}]}\"}",
+                "BucketTaggingConfiguration": "{\"tagSets\":[{\"tags\":{\"Project\":\"aws-config-poc\",\"Environment\":\"poc\",\"ManagedBy\":\"terraform\",\"PoC\":\"aws-config\"}}]}",
+                "BucketVersioningConfiguration": "{\"status\":\"Off\",\"isMfaDeleteEnabled\":null}",
+                "IsRequesterPaysEnabled": "false",
+                "PublicAccessBlockConfiguration": "{\"blockPublicAcls\":true,\"ignorePublicAcls\":true,\"blockPublicPolicy\":true,\"restrictPublicBuckets\":true}",
+                "ServerSideEncryptionConfiguration": "{\"rules\":[{\"applyServerSideEncryptionByDefault\":{\"sseAlgorithm\":\"AES256\",\"kmsMasterKeyID\":null},\"bucketKeyEnabled\":false}]}"
+            }
+        }
+    ],
+    "nextToken": "TOKEN"
+}

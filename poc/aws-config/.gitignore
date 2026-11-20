@@ -1,0 +1,23 @@
+# Terraform working directory and local state
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfplan
+terraform/*.tfplan.*
+terraform/crash.log
+terraform/crash.*.log
+
+# Local variables and credentials
+terraform/*.tfvars
+!terraform/*.tfvars.example
+terraform/.env
+terraform/.aws/
+terraform/credentials
+terraform/credentials.*
+terraform/*.pem
+terraform/*.key
+
+# Local evidence and generated artifacts
+*.zip
+*.log
+evidence/generated/

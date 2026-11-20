@@ -1,0 +1,18 @@
+{
+    "EvaluationResults": [
+        {
+            "EvaluationResultIdentifier": {
+                "EvaluationResultQualifier": {
+                    "ConfigRuleName": "aws-config-poc-poc-s3-versioning",
+                    "ResourceType": "AWS::S3::Bucket",
+                    "ResourceId": "aws-config-poc-poc-test-20261120040817217400000002",
+                    "EvaluationMode": "DETECTIVE"
+                },
+                "OrderingTimestamp": "2026-11-20T09:10:44.635000+05:00"
+            },
+            "ComplianceType": "NON_COMPLIANT",
+            "ResultRecordedTime": "2026-11-20T09:11:12.733000+05:00",
+            "ConfigRuleInvokedTime": "2026-11-20T09:11:12.517000+05:00"
+        }
+    ]
+}
